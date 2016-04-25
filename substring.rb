@@ -1,26 +1,22 @@
 def substring (string, dictionary)
 
     occurrences = Hash.new(0)
+    parse = string.downcase.split(" ")
 
     dictionary.each do |word|
 
+        if(parse.include?(word))
 
-        fragment = string.slice(0..2)
+            occurrences[word] +=1
 
-        if(fragment == word)
-
-            occurrences[fragment] +=1
-            return occurrences
-
-        end
+	    end
 
     end
 
-
-
+	return occurrences
 
 end
 
 word_list = ["animal", "cat", "house", "dog", "gerbil", "i", "me", "this", "right", "rite", "low", "be", "below", "above", "am", "web", "hang", "ten", "nail"]
 
-substring("cat", word_list)
+substring("I am a cat house", word_list)
